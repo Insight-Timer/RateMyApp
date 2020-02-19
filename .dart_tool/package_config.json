@@ -1,0 +1,92 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "collection",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "flutter",
+      "rootUri": "file:///Users/onikiri/flutter/packages/flutter",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///Users/onikiri/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "meta",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8",
+      "packageUri": "lib/",
+      "languageVersion": "1.12"
+    },
+    {
+      "name": "pedantic",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.6+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "shared_preferences_macos",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_platform_interface-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "shared_preferences_web",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "sky_engine",
+      "rootUri": "file:///Users/onikiri/flutter/bin/cache/pkg/sky_engine",
+      "packageUri": "lib/",
+      "languageVersion": "1.11"
+    },
+    {
+      "name": "smooth_star_rating",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/smooth_star_rating-1.0.4+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "typed_data",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "vector_math",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.0.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "rate_my_app",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    }
+  ],
+  "generated": "2020-02-19T04:12:33.749600Z",
+  "generator": "pub",
+  "generatorVersion": "2.7.0"
+}

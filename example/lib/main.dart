@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,7 +16,8 @@ void main() {
     runApp(_RateMyAppTestApp());
     _rateMyApp.conditions.forEach((condition) {
       if (condition is DebuggableCondition) {
-        print(condition.valuesAsString()); // We iterate through our list of conditions and we print all debuggable ones.
+        print(
+            condition.valuesAsString()); // We iterate through our list of conditions and we print all debuggable ones.
       }
     });
 
@@ -58,8 +60,20 @@ class _RateMyAppTestAppBodyState extends State<_RateMyAppTestAppBody> {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: RaisedButton(
+                child: const Text('Launch "Rate my app" custom dialog'),
+                onPressed: () => _rateMyApp
+                    .showCustomRateDialog<RemoveDownloadLoadItemOption>(context,
+                        builder: (rateMyApp) => CustomItemDialog())
+                    .then((_) => setState(() {})), // We launch the default Rate my app dialog.
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: RaisedButton(
                 child: const Text('Launch "Rate my app" dialog'),
-                onPressed: () => _rateMyApp.showRateDialog(context).then((_) => setState(() {})), // We launch the default Rate my app dialog.
+                onPressed: () => _rateMyApp
+                    .showRateDialog(context)
+                    .then((_) => setState(() {})), // We launch the default Rate my app dialog.
               ),
             ),
             RaisedButton(
@@ -127,7 +141,8 @@ class _RateMyAppTestAppBodyState extends State<_RateMyAppTestAppBody> {
             ),
             RaisedButton(
               child: const Text('Reset'),
-              onPressed: () => _rateMyApp.reset().then((_) => setState(() {})), // We reset all Rate my app conditions values.
+              onPressed: () =>
+                  _rateMyApp.reset().then((_) => setState(() {})), // We reset all Rate my app conditions values.
             ),
           ],
         ),
@@ -205,7 +220,14 @@ class MaxDialogOpeningCondition extends DebuggableCondition {
   @override
   String valuesAsString() {
     // Allows to easily debug this condition.
-    return 'Dialog opening count : ' + dialogOpeningCount.toString() + '\nMax dialog opening count : ' + maxDialogOpeningCount.toString() + 'Star dialog opening count : ' + starDialogOpeningCount.toString() + '\nMax star dialog opening count : ' + maxStarDialogOpeningCount.toString();
+    return 'Dialog opening count : ' +
+        dialogOpeningCount.toString() +
+        '\nMax dialog opening count : ' +
+        maxDialogOpeningCount.toString() +
+        'Star dialog opening count : ' +
+        starDialogOpeningCount.toString() +
+        '\nMax star dialog opening count : ' +
+        maxStarDialogOpeningCount.toString();
   }
 
   @override
@@ -214,3 +236,42 @@ class MaxDialogOpeningCondition extends DebuggableCondition {
     return dialogOpeningCount <= maxDialogOpeningCount && starDialogOpeningCount <= maxStarDialogOpeningCount;
   }
 }
+
+class CustomItemDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData appTheme = ThemeData(
+        cupertinoOverrideTheme: const CupertinoThemeData(
+      brightness: Brightness.dark,
+    ));
+    return Theme(
+      data: appTheme,
+      child: CupertinoAlertDialog(
+        title: Text("Yes"),
+        content: Text("NO"),
+        actions: [
+          CupertinoDialogAction(
+            isDefaultAction: false,
+            child: Text(
+              "Back",
+              style: TextStyle(color: Colors.red),
+            ),
+            onPressed: () => Navigator.pop(context, RemoveDownloadLoadItemOption.Cancel),
+          ),
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            child: Text(
+              "Remove",
+              style: TextStyle(color: Colors.red),
+            ),
+            onPressed: () {
+              Navigator.pop(context, RemoveDownloadLoadItemOption.Remove);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+enum RemoveDownloadLoadItemOption { Cancel, Remove }

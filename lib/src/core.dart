@@ -117,7 +117,8 @@ class RateMyApp {
       context,
       this,
       title: title ?? 'Rate this app',
-      message: message ?? 'If you like this app, please take a little bit of your time to review it !\nIt really helps us and it shouldn\'t take you more than one minute.',
+      message: message ??
+          'If you like this app, please take a little bit of your time to review it !\nIt really helps us and it shouldn\'t take you more than one minute.',
       actionsBuilder: actionsBuilder,
       rateButton: rateButton ?? 'RATE',
       noButton: noButton ?? 'NO THANKS',
@@ -163,6 +164,30 @@ class RateMyApp {
     );
   }
 
+  Future<T> showCustomRateDialog<T>(
+    BuildContext context, {
+    RateMyAppDialogWidgetBuilder builder,
+    bool ignoreIOS = false,
+    VoidCallback onDismissed,
+  }) async {
+    if (!ignoreIOS && Platform.isIOS && await _channel.invokeMethod('canRequestReview')) {
+      unawaited(callEvent(RateMyAppEventType.iOSRequestReview));
+      return _channel.invokeMethod('requestReview');
+    }
+
+    unawaited(callEvent(RateMyAppEventType.dialogOpen));
+    final result = await showDialog<T>(
+      context: context,
+      builder: (_) => builder(this),
+    );
+
+    if (result == null && onDismissed != null) {
+      onDismissed();
+    }
+
+    return result;
+  }
+
   /// Launches the corresponding store.
   Future<void> launchStore() => RateMyApp._channel.invokeMethod('launchStore', {
         'appId': storeIdentifier,
@@ -171,7 +196,8 @@ class RateMyApp {
   /// Calls the specified event.
   Future<void> callEvent(RateMyAppEventType eventType) {
     bool saveSharedPreferences = false;
-    conditions.forEach((condition) => saveSharedPreferences = condition.onEventOccurred(eventType) || saveSharedPreferences);
+    conditions
+        .forEach((condition) => saveSharedPreferences = condition.onEventOccurred(eventType) || saveSharedPreferences);
     return saveSharedPreferences ? save() : null;
   }
 
