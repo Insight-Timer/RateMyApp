@@ -169,6 +169,8 @@ class RateMyApp {
     RateMyAppDialogWidgetBuilder builder,
     bool ignoreIOS = false,
     VoidCallback onDismissed,
+    bool barrierDismissable = true,
+    bool useRootNavigator = true,
   }) async {
     if (!ignoreIOS && Platform.isIOS && await _channel.invokeMethod('canRequestReview')) {
       unawaited(callEvent(RateMyAppEventType.iOSRequestReview));
@@ -178,6 +180,8 @@ class RateMyApp {
     unawaited(callEvent(RateMyAppEventType.dialogOpen));
     final result = await showDialog<T>(
       context: context,
+      barrierDismissible: barrierDismissable,
+      useRootNavigator: useRootNavigator,
       builder: (_) => builder(this),
     );
 
