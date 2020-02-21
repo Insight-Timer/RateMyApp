@@ -198,7 +198,7 @@ class RateMyApp {
     bool saveSharedPreferences = false;
     conditions
         .forEach((condition) => saveSharedPreferences = condition.onEventOccurred(eventType) || saveSharedPreferences);
-    return saveSharedPreferences ? save() : null;
+    return saveSharedPreferences ? save() : Future.value(null);
   }
 
   /// Adds the default conditions to the current conditions list.
