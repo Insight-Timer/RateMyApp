@@ -3,7 +3,7 @@
   "packages": [
     {
       "name": "collection",
-      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.11",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.12",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -33,9 +33,9 @@
     },
     {
       "name": "shared_preferences",
-      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.6+1",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.7+3",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.1"
     },
     {
       "name": "shared_preferences_macos",
@@ -63,9 +63,9 @@
     },
     {
       "name": "smooth_star_rating",
-      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/smooth_star_rating-1.0.4+2",
+      "rootUri": "file:///Users/onikiri/flutter/.pub-cache/hosted/pub.dartlang.org/smooth_star_rating-1.1.1",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.7"
     },
     {
       "name": "typed_data",
@@ -83,10 +83,10 @@
       "name": "rate_my_app",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-02-19T04:52:58.997915Z",
+  "generated": "2020-06-04T03:57:31.422398Z",
   "generator": "pub",
-  "generatorVersion": "2.7.0"
+  "generatorVersion": "2.8.3"
 }

@@ -4,7 +4,7 @@ import 'package:rate_my_app/rate_my_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Main Rate my app instance.
-RateMyApp _rateMyApp = RateMyApp();
+RateMyApp _rateMyApp = RateMyApp(appStoreIdentifier: "1471292013");
 
 /// First plugin test method.
 void main() {
@@ -74,6 +74,14 @@ class _RateMyAppTestAppBodyState extends State<_RateMyAppTestAppBody> {
                 onPressed: () => _rateMyApp
                     .showRateDialog(context)
                     .then((_) => setState(() {})), // We launch the default Rate my app dialog.
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: RaisedButton(
+                child: const Text('Launch "Store" dialog'),
+                onPressed: () =>
+                    _rateMyApp.launchStore().then((_) => setState(() {})), // We launch the default Rate my app dialog.
               ),
             ),
             RaisedButton(
